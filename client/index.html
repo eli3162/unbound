@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join SMP</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      const url = 'https://raw.githubusercontent.com/eli3162/unbound/refs/heads/main/index.html';
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Error ${response.status}`);
+        const html = await response.text();
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (err) {
+        document.body.innerHTML = 'Failed to load HTML: ' + err.message;
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>Loading HTML...</p>
+</body>
+</html>
